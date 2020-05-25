@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
-</selector>
+    <stroke
+        android:width="2dp"
+        android:color="#FFFFFF" />
+
+    <corners android:radius="5dp" />
+
+    <gradient
+        android:angle="270"
+
+        android:centerColor="#F76D82"
+        android:endColor="#EC5565"
+        android:startColor="#D94452" />
+
+</shape>

@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <style name="colorProps">
+        //menubar color
+        <item name="colorPrimary">#ff3300</item>
+        //menu text
+        <item name="android:textColorPrimary">#ffff</item>
+
+        //background
+        <item name="android:windowBackground">@drawable/dbsbank</item>
+
+        //navigatoin bar code
+        <item name="android:navigationBarColor">#cc0000</item>
+    </style>
+</resources>

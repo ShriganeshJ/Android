@@ -1,2 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" tools:ignore="ExtraTranslation" translatable="false">स्वागत आहे</string>
+    <string name="message" tools:ignore="ExtraTranslation">स्वागत आहे</string>
+
+    <string name="enterName" tools:ignore="ExtraTranslation">कृपया आपले नाव प्रविष्ट करा</string>
+    <string name="password" tools:ignore="ExtraTranslation">कृपया आपला संकेतशब्द प्रविष्ट करा</string>
+</resources>

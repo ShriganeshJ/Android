@@ -1,23 +1,25 @@
 package com.js.sqllite;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ContentValues;
-import android.database.Cursor;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Register extends AppCompatActivity {
 
     EditText userName;
     EditText password;
+    private String strUserName;
+    private String strPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.register);
 
 
 
@@ -25,57 +27,64 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void onLogin(View view) {
-        /*  long stats;
+    public void OnLogIn(View view) {
 
-        userName = (EditText)findViewById(R.id.username);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void OnRegister(View view) {
+
+
+
+
+        strUserName=" ";
+        strPassword=" ";
+        long stats;
+
+        userName = (EditText)findViewById(R.id.name);
         password= (EditText) findViewById(R.id.password);
-        DBManager manager = new DBManager(this);
 
-        //set values
-        ContentValues values = new ContentValues();
-        values.put(DBManager.ColUserName,userName.getText().toString());
-        values.put(DBManager.ColPassWord,password.getText().toString());
-
-       stats= manager.InsertLoin(values);
-
-       //clear text box
-        userName.getText().clear();
-        password.getText().clear();
+        strUserName=userName.getText().toString();
+        strPassword=password.getText().toString();
 
 
-       if(stats>0)
-       {
-           Toast.makeText(getApplicationContext(),"Inserted",Toast.LENGTH_LONG).show();
-       }
-       else
-       {
-           Toast.makeText(getApplicationContext(),"Not Inserted",Toast.LENGTH_LONG).show();
-       }*/
+        if(strUserName.length()>1&&strPassword.length()>1) {
 
 
-       DBManager manager = new DBManager(this);
-        Cursor rs = manager.getData();
+            DBManager manager = new DBManager(this);
+
+            //set values
+            ContentValues values = new ContentValues();
+            values.put(DBManager.ColUserName, strUserName);
+            values.put(DBManager.ColPassWord, strPassword);
+
+            stats = manager.InsertLoin(values);
+
+            //clear text box
+            userName.getText().clear();
+            password.getText().clear();
 
 
-        if(rs.moveToFirst()) {
-            String data = " ";
+            if (stats > 0) {
+                Toast.makeText(getApplicationContext(), "Register", Toast.LENGTH_LONG).show();
 
-            do {
-                data += rs.getString(rs.getColumnIndex(DBManager.ColUserName));
+                Intent intent = new Intent(this,MainActivity.class);
+                startActivity(intent);
 
+            } else {
+                Toast.makeText(getApplicationContext(), "Not Register", Toast.LENGTH_LONG).show();
+            }
 
-            } while (rs.moveToNext());
-            Toast.makeText(getApplicationContext(), data, Toast.LENGTH_LONG).show();
 
         }
+        else
+        {
+            Toast.makeText(getApplicationContext(), "Please Enter User Name and Password", Toast.LENGTH_LONG).show();
+            userName.getText().clear();
+            password.getText().clear();
+        }
 
-
-
-
-    }
-
-    public void OpenSignupPage(View view) {
 
 
     }

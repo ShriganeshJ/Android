@@ -33,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
          if(srtUser.equalsIgnoreCase("Admin")&&strPassword.equals("pass@123"))
          {
              Intent intent = new Intent(this,Home.class);
+             //Vulnerability issue pass one encryped key
+             //to avoid to access second (Home) activity directly calling from android consol
+             intent.putExtra("key","encrypted key");
              intent.putExtra("name","Ganesh");
 
              startActivity(intent);

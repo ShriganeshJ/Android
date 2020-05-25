@@ -19,6 +19,10 @@ public class Home extends AppCompatActivity {
 
         Bundle b = getIntent().getExtras();
 
+        if (!b.getString("key").equals("encrypted key")) {
+            finish();
+        }
+
         String name = b.getString("name");
 
         text.setText("Welcome Mr."+name);
