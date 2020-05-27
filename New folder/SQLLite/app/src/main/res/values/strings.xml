@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SQLLite</string>
+    <string name="navigation_drawer_Open">Open navigation drawer</string>
+    <string name="navigation_drawer_Close">Close navigation drawer</string>
+</resources>
